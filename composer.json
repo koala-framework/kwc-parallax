@@ -1,0 +1,19 @@
+{
+    "name": "koala-framework/kwc-parallax",
+    "description": "Koala Framework Component for Parallax Effect",
+    "homepage": "http://www.koala-framework.org/",
+    "license": "BSD-2-Clause",
+    "type": "library",
+    "require": {
+        "koala-framework/koala-framework": ">= 3.8.*"
+    },
+    "require-dev": {
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-0": {
+            "Kwc_Parallax_": ""
+        }
+    }
+}
