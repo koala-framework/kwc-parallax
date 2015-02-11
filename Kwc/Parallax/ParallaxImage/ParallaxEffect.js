@@ -1,44 +1,43 @@
-(function() {
+Kwf.onJElementReady('.kwcParallaxParallaxImage', function(el) {
+    if (Modernizr.touch) return;
 
-    $window = $(window);
+    function updateBackgroundPosition() {
+        if ($(window).width() < 650) {
+            el.find('.parallaxImage').css({
+                backgroundPosition: '50% 50%',
+                backgroundSize: 'cover',
+                backgroundAttachment: 'scroll'
+            });
 
-    $('[data-type]').each(function() {
-        $(this).data('offsetY', parseInt($(this).attr('data-offsetY')));
-        $(this).data('speed', $(this).attr('data-speed'));
-    });
+        } else {
 
+            if ( ($(window).scrollTop() + $(window).height()) > (el.offset().top-el.height()) ) {
 
-    $('div[data-type="background"]').each(function(){
-        var $self = $(this),
-            offsetCoords = $self.offset(),
-            topOffset = offsetCoords.top;
+                var speed = el.data('speed');
+                var yPos = -($(window).scrollTop() / (el.data('speed') ||  2));
 
-        function updateBackgroundPosition() {
-
-            if ($('html').hasClass('no-touch') && $window.width() > 650) {
-
-                if ($window.width() < 650) {
-                    $self.css({ backgroundPosition: '50% 50%', 'background-attachment': 'unset', 'background-size': 'cover' });
-                    return;
+                if (el.data('offsetY')) {
+                    yPos += parseInt(el.data('offsetY'));
                 }
 
-                if ( ($window.scrollTop() + $window.height()) > (topOffset-$self.height()) ) {
-
-                    var speed = $self.data('speed');
-                    var yPos = -($window.scrollTop() / ($self.data('speed') ||  2));
-
-                    if ($self.data('offsetY')) {
-                        yPos += $self.data('offsetY');
-                    }
-
-                    var coords = '50% '+ yPos + 'px';
-                    $self.find('.parallaxImage').css({ backgroundPosition: coords, 'background-attachment': 'fixed', 'background-size': 'auto' });
-                }
+                var coords = '50% '+ yPos + 'px';
+                el.find('.parallaxImage').css({
+                    backgroundPosition: coords,
+                    backgroundSize: 'auto',
+                    backgroundAttachment: 'fixed'
+                });
             }
         }
+    }
 
-        $(window).on('scroll resize', updateBackgroundPosition);
-        updateBackgroundPosition();
+    $(window).on('scroll', updateBackgroundPosition);
+
+    var activeTimeout = null;
+
+    $(window).on('resize', function() {
+        if (activeTimeout) clearTimeout(activeTimeout);
+        activeTimeout = setTimeout(updateBackgroundPosition, 100);
     });
 
-})();
+    updateBackgroundPosition();
+});
