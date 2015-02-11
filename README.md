@@ -1,3 +1,3 @@
 Koala Framework Component for Parallax Scrolling
 
-http://koala-framework.org
+http://www.koala-framework.org
