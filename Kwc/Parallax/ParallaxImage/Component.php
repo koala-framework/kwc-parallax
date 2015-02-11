@@ -5,7 +5,7 @@ class Kwc_Parallax_ParallaxImage_Component extends Kwc_Abstract_Composite_Compon
     {
         $ret = parent::getSettings();
         $ret['generators']['child']['component']['image'] = 'Kwc_Parallax_ParallaxImage_Image_Component';
-        $ret['ownModel'] = 'Kwf_Component_FieldModel';
+        $ret['ownModel'] = 'Kwc_Parallax_ParallaxImage_Model';
         $ret['assets']['dep'][] = 'ModernizrTouch';
         $ret['assetsDefer']['files'][] = 'kwcParallax/Kwc/Parallax/ParallaxImage/ParallaxEffect.js';
         return $ret;
