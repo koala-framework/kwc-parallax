@@ -14,7 +14,7 @@ Kwf.onJElementReady('.kwcParallaxParallaxImage', function(el) {
             if ( ($(window).scrollTop() + $(window).height()) > (el.offset().top-el.height()) ) {
 
                 var speed = el.data('speed');
-                var yPos = -($(window).scrollTop() / (el.data('speed') ||  2));
+                var yPos = -(($(window).scrollTop()-el.offset().top) / (el.data('speed') ||  2));
 
                 if (el.data('offsetY')) {
                     yPos += parseInt(el.data('offsetY'));
