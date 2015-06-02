@@ -4,10 +4,10 @@ class Kwc_Parallax_ParallaxImage_Image_Component extends Kwc_Basic_Image_Compone
     public static function getSettings()
     {
         $ret = parent::getSettings();
-        $ret['componentName'] = trlStatic('Hintergrundbild');
+        $ret['componentName'] = trlKwfStatic('Background Image');
         $ret['dimensions'] = array(
             'fullWidth'=>array(
-                'text' => trlKwf('full width'),
+                'text' => trlKwfStatic('full width'),
                 'width' => 2560,
                 'height' => 0,
                 'cover' => true
