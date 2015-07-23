@@ -3,7 +3,7 @@ Kwf.onJElementReady('.kwcParallaxParallaxImage', function(el) {
 
     function updateBackgroundPosition() {
         if ($(window).width() < 650) {
-            el.find('.parallaxImage').css({
+            el.find('.kwcAbstractImage > .parallaxImage').css({
                 backgroundPosition: '50% 50%',
                 backgroundSize: 'cover',
                 backgroundAttachment: 'scroll'
@@ -12,25 +12,28 @@ Kwf.onJElementReady('.kwcParallaxParallaxImage', function(el) {
         } else {
 
             if ( ($(window).scrollTop() + $(window).height()) > (el.offset().top-el.height()) ) {
-
+                var scrollTop = $(window).scrollTop();
                 var speed = el.data('speed');
-                var yPos = -(($(window).scrollTop()-el.offset().top) / (el.data('speed') ||  2));
+                var yPos = -((scrollTop - el.offset().top) / (speed ||  2) - (scrollTop - el.offset().top));
+                var offsetY = 0;
 
                 if (el.data('offsetY')) {
-                    yPos += parseInt(el.data('offsetY'));
+                    offsetY = parseInt(el.data('offsetY'));
                 }
 
-                var coords = '50% '+ yPos + 'px';
-                el.find('.parallaxImage').css({
-                    backgroundPosition: coords,
-                    backgroundSize: 'auto',
-                    backgroundAttachment: 'fixed'
-                });
+                var styles = {
+                    'transform' : 'translateY(' + ((yPos))  + 'px)',
+                    '-webkit-transform' : 'translateY(' + ((yPos))  + 'px)',
+                    '-ms-transform' : 'translateY(' + ((yPos))  + 'px)',
+                    'background-position' : '50% ' + offsetY + 'px'
+                };
+
+                el.find('.kwcAbstractImage > .parallaxImage').css(styles);
             }
         }
     }
 
-    $(window).on('scroll', updateBackgroundPosition);
+    $(window).on('scroll mousewheel', updateBackgroundPosition);
 
     var activeTimeout = null;
 
