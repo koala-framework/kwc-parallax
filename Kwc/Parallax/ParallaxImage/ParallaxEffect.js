@@ -1,12 +1,12 @@
 var $ = require('jQuery');
 var onReady = require('kwf/on-ready');
 
-onReady.onRender('.kwcParallaxParallaxImage', function(el) {
+onReady.onRender('.kwcClass', function(el) {
     if (Modernizr.touch) return;
 
     function updateBackgroundPosition() {
         if ($(window).width() < 650) {
-            el.find('.kwcAbstractImage > .parallaxImage').css({
+            el.find('.parallaxImage').css({
                 backgroundPosition: '50% 50%',
                 backgroundSize: 'cover',
                 backgroundAttachment: 'scroll'
@@ -31,7 +31,7 @@ onReady.onRender('.kwcParallaxParallaxImage', function(el) {
                     'background-position' : '50% ' + offsetY + 'px'
                 };
 
-                el.find('.kwcAbstractImage > .parallaxImage').css(styles);
+                el.find('.parallaxImage').css(styles);
             }
         }
     }
