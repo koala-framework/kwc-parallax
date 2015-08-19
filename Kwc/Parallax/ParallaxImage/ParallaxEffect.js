@@ -1,4 +1,7 @@
-Kwf.onJElementReady('.kwcParallaxParallaxImage', function(el) {
+var $ = require('jQuery');
+var onReady = require('kwf/on-ready');
+
+onReady.onRender('.kwcParallaxParallaxImage', function(el) {
     if (Modernizr.touch) return;
 
     function updateBackgroundPosition() {
