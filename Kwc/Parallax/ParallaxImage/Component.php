@@ -15,7 +15,6 @@ class Kwc_Parallax_ParallaxImage_Component extends Kwc_Abstract_Composite_Compon
     {
         $ret = parent::getTemplateVars();
         $ret['parallaxSpeed'] = $this->getRow()->parallax_speed;
-        $ret['parallaxOffset'] = $this->getRow()->parallax_offset;
         return $ret;
     }
 }
