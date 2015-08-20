@@ -10,7 +10,7 @@ onReady.onRender('.kwcClass', function(el) {
     var containerHeight = 0;
     var factor = 0;
 
-    function setOuteContainerHeight() {
+    function setOuterContainerHeight() {
         containerHeight = parent.height();
         if (speed < 1) {
             el.css('height', containerHeight/speed);
@@ -55,11 +55,11 @@ onReady.onRender('.kwcClass', function(el) {
     $(window).on('resize', function() {
         if (activeTimeout) clearTimeout(activeTimeout);
         activeTimeout = setTimeout(function() {
-            setOuteContainerHeight();
+            setOuterContainerHeight();
             updateBackgroundPosition();
         }, 100);
     });
 
-    setOuteContainerHeight();
+    setOuterContainerHeight();
     updateBackgroundPosition();
 });
