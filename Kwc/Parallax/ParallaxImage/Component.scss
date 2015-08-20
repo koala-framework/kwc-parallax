@@ -1,12 +1,13 @@
 .cssClass {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     div {
         width: 100%;
-        height: 100vh;
+        height: 100%;
         &.parallaxImage {
             background-attachment: scroll;
             background-position: 50% 0;
+            background-size: cover;
         }
     }
 }
