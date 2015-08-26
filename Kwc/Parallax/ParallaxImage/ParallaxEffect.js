@@ -29,11 +29,11 @@ onReady.onRender('.kwcClass', function(el) {
         } else {
             if ( ($(window).scrollTop() + $(window).height()) > (el.offset().top-el.height()) ) {
                 if (speed < 1) {
-                    factor = ((parent.position().top - $(window).scrollTop() + containerHeight)/($(window).height() + containerHeight) - 1)*(-1);
+                    factor = ((parent.offset().top - $(window).scrollTop() + containerHeight)/($(window).height() + containerHeight) - 1)*(-1);
                     if (factor < 0)factor = 0;
                     yPos = (-el.height()+containerHeight)*factor;
                 } else {
-                    factor = (parent.position().top - $(window).scrollTop() + containerHeight)/($(window).height() + containerHeight);
+                    factor = (parent.offset().top - $(window).scrollTop() + containerHeight)/($(window).height() + containerHeight);
                     if (factor < 0)factor = 0;
                     yPos = (-el.height()+containerHeight)*factor;
                 }
