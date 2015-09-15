@@ -1,6 +1,6 @@
 Kwf.onJElementReady('.kwcParallaxParallaxImage', function(el) {
     var speed = parseFloat(el.data('speed'));
-    if (Modernizr.touch || speed === 1) return;
+    if (Modernizr.touchevents || speed === 1) return;
 
     var yPos = 0;
     var parent = el.parent().parent();
