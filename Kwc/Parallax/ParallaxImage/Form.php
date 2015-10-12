@@ -14,5 +14,7 @@ class Kwc_Parallax_ParallaxImage_Form extends Kwc_Abstract_Composite_Form
 
         $fs->add(new Kwf_Form_Field_Static(trlKwf('Parallax velocity lower than 1 = faster than scrolling (ex: 0,5 = 200%)')));
         $fs->add(new Kwf_Form_Field_Static(trlKwf('Parallax velocity higher than 1 = slower than scrolling (ex: 2 = 50%)')));
+        $fs->add(new Kwf_Form_Field_Static('<br>'.trlKwf('Note that when enabled Parallaxeffect the image must be upscaled and may '.
+            'be parts of the picture are cut off. If possible, choose a slightly larger area than the ideal view.')));
     }
 }
