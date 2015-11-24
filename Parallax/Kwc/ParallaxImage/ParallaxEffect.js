@@ -1,4 +1,4 @@
-Kwf.onJElementReady('.kwcParallaxParallaxImage', function(el) {
+Kwf.onJElementReady('.parallaxKwcParallaxImage', function(el) {
     var speed = parseFloat(el.data('speed'));
     if (Modernizr.touchevents || speed === 1) return;
 
