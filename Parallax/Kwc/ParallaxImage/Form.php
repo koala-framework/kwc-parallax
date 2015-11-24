@@ -1,5 +1,5 @@
 <?php
-class Kwc_Parallax_ParallaxImage_Form extends Kwc_Abstract_Composite_Form
+class Parallax_Kwc_ParallaxImage_Form extends Kwc_Abstract_Composite_Form
 {
     protected function _initFields()
     {

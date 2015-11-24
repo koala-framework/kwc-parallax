@@ -1,13 +1,13 @@
 <?php
-class Kwc_Parallax_ParallaxImage_Component extends Kwc_Abstract_Composite_Component
+class Parallax_Kwc_ParallaxImage_Component extends Kwc_Abstract_Composite_Component
 {
     public static function getSettings()
     {
         $ret = parent::getSettings();
-        $ret['generators']['child']['component']['image'] = 'Kwc_Parallax_ParallaxImage_Image_Component';
-        $ret['ownModel'] = 'Kwc_Parallax_ParallaxImage_Model';
+        $ret['generators']['child']['component']['image'] = 'Parallax_Kwc_ParallaxImage_Image_Component';
+        $ret['ownModel'] = 'Parallax_Kwc_ParallaxImage_Model';
         $ret['assets']['dep'][] = 'ModernizrTouchevents';
-        $ret['assetsDefer']['files'][] = 'kwcParallax/Kwc/Parallax/ParallaxImage/ParallaxEffect.js';
+        $ret['assetsDefer']['files'][] = 'kwcParallax/Parallax/Kwc/ParallaxImage/ParallaxEffect.js';
         return $ret;
     }
 
