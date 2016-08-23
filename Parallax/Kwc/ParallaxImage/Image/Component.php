@@ -17,7 +17,7 @@ class Parallax_Kwc_ParallaxImage_Image_Component extends Kwc_Basic_Image_Compone
         return $ret;
     }
 
-    public function getTemplateVars(Kwf_Component_Renderer_Abstract $renderer)
+    public function getTemplateVars(Kwf_Component_Renderer_Abstract $renderer = null)
     {
         $ret = parent::getTemplateVars($renderer);
         $ret['imageUrl'] = $this->getImageUrl();
