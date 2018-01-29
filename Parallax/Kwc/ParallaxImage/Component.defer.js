@@ -3,7 +3,7 @@ var onReady = require('kwf/on-ready');
 
 onReady.onRender('.kwcClass', function(el) {
     var speed = parseFloat(el.data('speed'));
-    if (Modernizr.touchevents || speed === 1) return;
+    if (speed === 1) return;
 
     var yPos = 0;
     var parent = el.parent().parent();
@@ -20,31 +20,23 @@ onReady.onRender('.kwcClass', function(el) {
     }
 
     function updateBackgroundPosition() {
-        if ($(window).width() < 650) {
-            el.find('.parallaxImage').css({
-                backgroundPosition: '50% 50%',
-                backgroundSize: 'cover',
-                backgroundAttachment: 'scroll'
-            });
-        } else {
-            if ( ($(window).scrollTop() + $(window).height()) > (el.offset().top-el.height()) ) {
-                if (speed < 1) {
-                    factor = ((parent.offset().top - $(window).scrollTop() + containerHeight)/($(window).height() + containerHeight) - 1)*(-1);
-                    if (factor < 0)factor = 0;
-                    yPos = (-el.height()+containerHeight)*factor;
-                } else {
-                    factor = (parent.offset().top - $(window).scrollTop() + containerHeight)/($(window).height() + containerHeight);
-                    if (factor < 0)factor = 0;
-                    yPos = (-el.height()+containerHeight)*factor;
-                }
-
-                var styles = {
-                    'transform' : 'translateY(' + ((yPos))  + 'px)',
-                    '-webkit-transform' : 'translateY(' + ((yPos))  + 'px)',
-                    '-ms-transform' : 'translateY(' + ((yPos))  + 'px)'
-                };
-                el.find('.parallaxImage').css(styles);
+        if ( ($(window).scrollTop() + $(window).height()) > (el.offset().top-el.height()) ) {
+            if (speed < 1) {
+                factor = ((parent.offset().top - $(window).scrollTop() + containerHeight)/($(window).height() + containerHeight) - 1)*(-1);
+                if (factor < 0)factor = 0;
+                yPos = (-el.height()+containerHeight)*factor;
+            } else {
+                factor = (parent.offset().top - $(window).scrollTop() + containerHeight)/($(window).height() + containerHeight);
+                if (factor < 0)factor = 0;
+                yPos = (-el.height()+containerHeight)*factor;
             }
+
+            var styles = {
+                'transform' : 'translate3d(0,' + ((yPos))  + 'px, 0)',
+                '-webkit-transform' : 'translate3d(0,' + ((yPos))  + 'px, 0)',
+                '-ms-transform' : 'translate3d(0,' + ((yPos))  + 'px, 0)'
+            };
+            el.find('.parallaxImage').css(styles);
         }
     }
 
