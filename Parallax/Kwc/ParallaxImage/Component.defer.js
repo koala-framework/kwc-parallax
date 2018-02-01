@@ -1,5 +1,5 @@
 var $ = require('jQuery');
-var onReady = require('kwf/on-ready');
+var onReady = require('kwf/commonjs/on-ready');
 
 onReady.onRender('.kwcClass', function(el) {
     var speed = parseFloat(el.data('speed'));
