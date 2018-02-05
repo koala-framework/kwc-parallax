@@ -5,7 +5,7 @@
     "license": "BSD-2-Clause",
     "type": "library",
     "require": {
-        "koala-framework/koala-framework": "~4.0"
+        "koala-framework/koala-framework": "~5.0"
     },
     "require-dev": {
     },
